@@ -58,9 +58,9 @@ SIZE           = $(CROSS_COMPILE)size
 OPENOCD        ?= openocd
 OPENOCD_CFG    ?= -f interface/cmsis-dap.cfg -c "transport select swd" -f target/numicro.cfg
 
-BSP_DIR = ${HOME}/M031BSP
-LIB_DIR = $(BSP_DIR)/Library
-GCC_DIR = $(LIB_DIR)/Device/Nuvoton/M031/Source/GCC
+BSP_DIR ?= ${HOME}/M031BSP
+LIB_DIR  = $(BSP_DIR)/Library
+GCC_DIR  = $(LIB_DIR)/Device/Nuvoton/M031/Source/GCC
 
 # Prefer capacity-specific linker script if available, fallback to gcc_arm.ld
 LDSCRIPT_SPECIFIC = $(GCC_DIR)/gcc_arm_$(LD_SUFFIX).ld
